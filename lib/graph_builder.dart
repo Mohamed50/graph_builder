@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:graphview/GraphView.dart';
 
 /// Core widget to render a tree or graph using GraphView
-/// **GraphBuilder**
+/// **GraphBuilder<T>**
 ///
 /// A generic, interactive graph visualization widget built on top of the `graphview` package.
 /// It supports:
@@ -55,7 +55,7 @@ class GraphBuilder<T> extends StatelessWidget{
     this.height = 3000,
     this.siblingSeparation = 20,
     this.levelSeparation = 30,
-    this.boundaryMargin = const EdgeInsets.all(100),
+    this.boundaryMargin = const EdgeInsets.all(1000),
     this.enableCycleCheck = true,
   });
 
@@ -94,11 +94,12 @@ class GraphBuilder<T> extends StatelessWidget{
       for (final child in getChildren(parent)) {
         final childNode = getNode(child);
         graph.addNode(childNode);
-        graph.addEdge(parentNode, childNode, paint: Paint()
-          ..color = Colors.grey.shade600
-          ..strokeWidth = 2.0
-          ..style = PaintingStyle.stroke
-          ..strokeCap = StrokeCap.round); // directional edge styling
+        graph.addEdge(parentNode, childNode,
+            paint: Paint()
+              ..color = Colors.grey.shade600
+              ..strokeWidth = 2.0
+              ..style = PaintingStyle.stroke
+              ..strokeCap = StrokeCap.round); // directional edge styling
 
         if (!visited.contains(child)) {
           visited.add(child);
@@ -126,13 +127,16 @@ class GraphBuilder<T> extends StatelessWidget{
         ..nodeSeparation = siblingSeparation
         ..levelSeparation = levelSeparation
         ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM
-        ..bendPointShape = CurvedBendPointShape(curveLength: 3),
+        ..bendPointShape = CurvedBendPointShape(curveLength: 3)
     );
 
-    return Container(
-      width: width,
-      height: height,
-      alignment: Alignment.center,
+    final nodeCount = nodeMap.length;
+    final estimatedWidth = nodeCount * 200;
+    final estimatedHeight = (nodeCount / 2).ceil() * 200;
+
+    return SizedBox(
+      width: estimatedWidth.toDouble(),
+      height: estimatedHeight.toDouble(),
       child: InteractiveViewer(
         constrained: false,
         boundaryMargin: boundaryMargin,
