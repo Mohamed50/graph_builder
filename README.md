@@ -22,6 +22,13 @@ Built on top of [`graphview`](https://pub.dev/packages/graphview), `GraphBuilder
 
 ---
 
+## 🚀 Screenshot
+
+![image](https://github.com/user-attachments/assets/4160f912-4e57-4951-a7e3-fcbddf31ab69)
+
+
+---
+
 ## ✨ Example Usage
 
 ```dart
