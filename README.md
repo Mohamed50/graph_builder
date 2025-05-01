@@ -82,10 +82,16 @@ dependencies:
 
 ---
 
-## 📘 License
+---
 
-MIT
+## 🧑‍💻 Author
+
+**Mohamed Elamin (Fifty)**
 
 ---
+
+## 📄 License
+
+MIT — Use it, fork it, vibe with it.
 
 > Built for flexibility. Perfect for skill trees, progression graphs, or anything DAG-shaped.
