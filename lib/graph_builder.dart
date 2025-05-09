@@ -46,6 +46,7 @@ class GraphBuilder<T> extends StatelessWidget{
   final int levelSeparation;
   final EdgeInsets boundaryMargin;
   final bool enableCycleCheck;
+  final Algorithm? algorithm;
 
   const GraphBuilder({
     super.key,
@@ -58,6 +59,7 @@ class GraphBuilder<T> extends StatelessWidget{
     this.levelSeparation = 30,
     this.boundaryMargin = const EdgeInsets.all(1000),
     this.enableCycleCheck = true,
+    this.algorithm,
   });
 
   @override
@@ -123,7 +125,7 @@ class GraphBuilder<T> extends StatelessWidget{
       addEdges(root);
     }
 
-    final builder = SugiyamaAlgorithm(
+    final builder = algorithm ?? SugiyamaAlgorithm(
       SugiyamaConfiguration()
         ..nodeSeparation = siblingSeparation
         ..levelSeparation = levelSeparation
