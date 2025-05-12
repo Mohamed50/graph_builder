@@ -1,5 +1,5 @@
 // lib/graph_builder.dart
-export 'graph_builder_web.dart' if (dart.library.io) 'graph_builder_io.dart';
+// export 'graph_builder_web.dart' if (dart.library.io) 'graph_builder_io.dart';
 
 import 'package:flutter/material.dart';
 import 'package:graphview/GraphView.dart';
