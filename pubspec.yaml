@@ -2,7 +2,7 @@ name: graph_builder
 description: >
   A flexible Flutter widget for visualizing acyclic graphs (e.g. skill trees)
   with zoom, pan, and animated interactivity.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/mohamed50/graph_builder
 repository: https://github.com/mohamed50/graph_builder
 issue_tracker: https://github.com/mohamed50/graph_builder/issues
