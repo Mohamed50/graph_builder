@@ -15,6 +15,7 @@ import 'package:graphview/GraphView.dart';
 /// - Animated scaling and hover effects on node interaction
 /// - Tooltip display on hover or long press
 /// - Cycle detection (optional)
+/// - Custom layout via optional [Algorithm] injection
 ///
 /// **Type Parameters:**
 /// - `T`: The type of the node data object. Must implement `==` and `hashCode` properly.
@@ -23,10 +24,11 @@ import 'package:graphview/GraphView.dart';
 /// - `data`: List of root nodes to start graph traversal
 /// - `nodeBuilder`: Function to build UI for each node from its model object
 /// - `getChildren`: Function to get children from a given node
-/// - `width`, `height`: Size of the canvas inside the viewer
+/// - `width`, `height`: Base canvas dimensions (used as a fallback)
 /// - `siblingSeparation`, `levelSeparation`: Control node and level spacing
 /// - `boundaryMargin`: Margin around the graph to allow panning
-/// - `enableCycleCheck`: Optional cycle detection before rendering
+/// - `enableCycleCheck`: If true, performs a pre-render cycle validation
+/// - `algorithm`: Optional [Algorithm] instance (e.g. [SugiyamaAlgorithm]) to customize layout logic
 ///
 /// Example:
 /// ```dart
@@ -34,6 +36,7 @@ import 'package:graphview/GraphView.dart';
 ///   data: roots,
 ///   getChildren: (node) => node.dependencies,
 ///   nodeBuilder: (node) => MyCustomNodeWidget(node),
+///   algorithm: SugiyamaAlgorithm(SugiyamaConfiguration()..orientation = SugiyamaConfiguration.ORIENTATION_LEFT_RIGHT),
 /// )
 /// ```
 class GraphBuilder<T> extends StatelessWidget{
@@ -129,7 +132,7 @@ class GraphBuilder<T> extends StatelessWidget{
       SugiyamaConfiguration()
         ..nodeSeparation = siblingSeparation
         ..levelSeparation = levelSeparation
-        ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM
+        ..orientation = SugiyamaConfiguration.ORIENTATION_BOTTOM_TOP
         ..bendPointShape = CurvedBendPointShape(curveLength: 3)
     );
 
