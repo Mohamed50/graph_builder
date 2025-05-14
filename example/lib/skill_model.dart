@@ -18,7 +18,7 @@ class SkillModel {
   });
 
   factory SkillModel.fromJson(Map<String, dynamic> json) => SkillModel(
-        id: json["id"],
+        id: json["key"],
         name: json["name"],
         key: json["key"],
         cost: json["cost"],
