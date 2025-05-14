@@ -1,3 +1,3 @@
-## 1.0.3
+## 1.0.4
 
-* Fix Bug
+* change orientation and example
