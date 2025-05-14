@@ -132,7 +132,7 @@ class GraphBuilder<T> extends StatelessWidget{
       SugiyamaConfiguration()
         ..nodeSeparation = siblingSeparation
         ..levelSeparation = levelSeparation
-        ..orientation = SugiyamaConfiguration.ORIENTATION_BOTTOM_TOP
+        ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM
         ..bendPointShape = CurvedBendPointShape(curveLength: 3)
     );
 
