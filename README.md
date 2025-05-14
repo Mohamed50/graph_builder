@@ -62,7 +62,7 @@ GraphBuilder<SkillModel>(
 dependencies:
   graph_builder:
     git:
-      url: https://github.com/your-username/graph_builder.git
+      url: https://github.com/Mohamed50/graph_builder.git
 ```
 
 ---
